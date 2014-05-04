@@ -1,0 +1,306 @@
+html, body {
+  background-color: white;
+  font-family: 'Quattrocento', serif;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #369;
+}
+
+a:hover {
+  color: darkred;
+  text-decoration: underline;
+}
+
+/*---------------------------------------------------------------------------*/
+
+header {
+  position: relative;
+  margin: 0 auto;
+  width: 650px;
+  margin-bottom: 30px;
+}
+
+header div.title {
+  font-size: 22pt;
+  font-weight: normal;
+  font-style: italic;
+  letter-spacing: 2px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+header div.author {
+  font-size: 12pt;
+  font-weight: normal;
+  font-style: italic;
+  color: #888;
+  letter-spacing: 2.9px;
+  margin-bottom: 2em;
+}
+
+/*---------------------------------------------------------------------------*/
+
+footer {
+  position: relative;
+  height: 50px;
+  margin: 0 auto;
+  width: 650px;
+  margin-top: 20px;
+}
+
+footer div.copyright {
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  top: 5px;
+  font-size: 12pt;
+  letter-spacing: 1.3px;
+  color: #555;
+  font-style: italic;
+}
+
+/*---------------------------------------------------------------------------*/
+
+#container {
+  bottom: 30px;
+  overflow: auto;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 24px;
+}
+
+/*---------------------------------------------------------------------------*/
+
+section.posts {
+  margin: 0 auto;
+  width: 650px;
+}
+
+section.posts h1 {
+  font-size: 20pt;
+  font-weight: normal;
+  letter-spacing: 2px;
+  color: #555;
+}
+
+section.posts p, section.page p {
+  font-size: 15pt;
+  text-align: justify;
+  line-height: 1.3em;
+}
+
+section.posts ul, section.page ul {
+  list-style: none;
+  padding-left: 12px;
+}
+
+section.posts li, section.page li {
+  font-size: 15pt;
+  margin-bottom: 6pt;
+}
+
+section.posts span.date {
+  color: #888 !important;
+  margin-right: 12px;
+}
+
+section.page {
+  margin: 0 auto;
+  width: 650px;
+}
+
+section.page h1 {
+  font-size: 20pt;
+  font-weight: normal;
+  letter-spacing: 2px;
+  color: #555;
+  margin-top: 24pt;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+/*---------------------------------------------------------------------------*/
+
+article {
+  margin: 0 auto;
+  width: 650px;
+}
+
+article h1 {
+  font-weight: normal;
+  font-size: 20pt;
+  letter-spacing: 2px;
+  color: #555;
+  margin-top: 24pt;
+}
+
+article h2 {
+  font-weight: normal;
+  font-size: 18pt;
+  letter-spacing: 2px;
+  margin-top: 24pt;
+  color: #555;
+  font-variant: small-caps;
+}
+
+article ul {
+}
+
+article li {
+  font-size: 15pt;
+  margin-bottom: 6pt;
+}
+
+article section.date {
+  color: darkred;
+  font-size: 15pt;
+}
+
+article section.body p {
+  font-size: 15pt;
+  text-align: justify;
+  line-height: 1.3em;
+}
+
+article img {
+  margin: 0 auto;
+}
+
+article figure {
+  text-align: center;
+  width: 650px;
+  margin: 0;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding: 0;
+}
+
+article img {
+  margin: 0;
+  padding:0;
+}
+
+article figcaption {
+  text-align: center;
+}
+
+div.audio-wrapper {
+  margin: 0 auto;
+  margin-top: 60pt;
+}
+
+div.audio-download {
+  font-size: 12pt;
+}
+
+audio {
+  margin: 0;
+  width: 100%;
+  border-radius: 5px;
+}
+
+@media (max-width: 650px) {
+
+  body {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  header {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    height: 100px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  header div.title {
+    text-align: center;
+    font-size: 16pt;
+  }
+
+  header div.author {
+    text-align: center;
+    font-size: 12pt;
+  }
+
+  article {
+    width: 100% !important;
+  }
+
+  article h1 {
+    font-weight: bold;
+    text-align: center;
+    font-size: 16pt;
+  }
+
+  article li {
+    font-size: 13.5pt;
+  }
+
+  article section.body p {
+    text-align: left !important;
+    font-size: 13.5pt;
+  }
+
+  article section.date {
+    text-align: center;
+  }
+
+  article figure {
+    width: 100%;
+  }
+
+  article figure img {
+    width: 100%;
+  }
+
+  footer {
+    width: 100% !important;
+  }
+
+  footer div.copyright {
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    border-top: 1px solid #ddd;
+    font-size: 10pt;
+  }
+
+  section.posts {
+    width: 100% !important;
+  }
+
+  section.posts h1 {
+    font-weight: bold;
+  }
+
+  section.posts li {
+    font-size: 13.5pt;
+  }
+
+  section.posts span.date {
+    display: block;
+    font-size: 12pt;
+  }
+
+  section.page {
+    width: 100% !important;
+  }
+
+  section.page h1 {
+    font-weight: bold !important;
+    font-size: 16pt;
+  }
+
+  section.page p {
+    text-align: left;
+    font-size: 13.5pt;
+  }
+
+}
