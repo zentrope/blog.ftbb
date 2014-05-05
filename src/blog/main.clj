@@ -206,7 +206,7 @@
     ;;
     (let [feed-dir (io/file root "feeds")]
       (.mkdirs feed-dir)
-      (spit (io/file feed-dir "rss.xml")
+      (spit (io/file feed-dir "ftbb.rss")
             (rss-feed posts)))
     ;;
     (doseq [post posts]
