@@ -7,7 +7,10 @@
     [clojure.java.io :as io]
     [clojure.java.shell :as shell]
     [clojure.data.xml :refer [indent-str sexp-as-element]]
-    [hiccup.page :refer [html5 include-css]]))
+    [hiccup.page :refer [html5 include-css]])
+  (:import
+   java.nio.file.Files
+   java.nio.file.FileSystems))
 
 ;;-----------------------------------------------------------------------------
 
@@ -28,10 +31,17 @@
 
 ;;-----------------------------------------------------------------------------
 
+(defn- symlink?
+  [f]
+  (-> (FileSystems/getDefault)
+      (.getPath (.getAbsolutePath f) (into-array [""]))
+      (Files/isSymbolicLink)))
+
 (defn- delete-file-recursively!
   [f]
   (let [f (io/file f)]
-    (if (.isDirectory f)
+    (if (and (.isDirectory f)
+             (not (symlink? f)))
       (doseq [child (.listFiles f)]
         (delete-file-recursively! child)))
     (io/delete-file f)))

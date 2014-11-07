@@ -39,10 +39,10 @@ What is it with all this [CamelCase][cc]. Aren't we done with that yet?
 
 <div class="audio-wrapper">
   <audio controls>
-    <source src="episode/2013-08-01-episode-10.mp3" type="audio/mpeg"/>
+    <source src="/episode/2013-08-01-episode-10.mp3" type="audio/mpeg"/>
   </audio>
   <div class="audio-download">
-    <a href="episode/2013-08-01-episode-10.mp3">Download MP3</a>
+    <a href="/episode/2013-08-01-episode-10.mp3">Download MP3</a>
   </div>
 </div>
 

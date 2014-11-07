@@ -60,9 +60,9 @@ podcast is, ultimately, about design.
 
 <div class="audio-wrapper">
   <audio controls>
-    <source src="episode/2013-05-19-episode-7.mp3" type="audio/mpeg"/>
+    <source src="/episode/2013-05-19-episode-7.mp3" type="audio/mpeg"/>
   </audio>
   <div class="audio-download">
-    <a href="episode/2013-05-19-episode-7.mp3">Download MP3</a>
+    <a href="/episode/2013-05-19-episode-7.mp3">Download MP3</a>
   </div>
 </div>
