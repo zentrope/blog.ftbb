@@ -84,7 +84,20 @@
     [:section#container
      body]
     [:footer
-     [:div.copyright "&copy; 2009-2014 Keith Irwin, Christoph Neumann. All rights reserved."]]]))
+     [:div.copyright "&copy; 2009-2014 Keith Irwin, Christoph Neumann. All rights reserved."]]
+    [:script {:type "text/javascript"}
+      "var _gauges = _gauges || [];
+      (function() {
+        var t   = document.createElement('script');
+        t.type  = 'text/javascript';
+        t.async = true;
+        t.id    = 'gauges-tracker';
+        t.setAttribute('data-site-id', '51463698f5a1f55a700000be');
+        t.src = '//secure.gaug.es/track.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(t, s);
+      })();"
+     ]]))
 
 (defn- post-page
   [title date text]
