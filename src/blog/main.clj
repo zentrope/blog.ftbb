@@ -72,7 +72,7 @@
     [:meta {:http-quiv "X-UA-Compatible" :content "IE=edge"}]
     [:meta {:name "viewport" :content "width=device-width"}]
     [:link {:rel "alternate" :type "application/rss+xml" :title "RSS"
-            :href "http://ftbb.tv/feeds/rss.xml"}]
+            :href "http://ftbb.tv/ftbb.rss"}]
     [:link {:rel "shortcut icon" :href "favicon.ico"}]
     (include-css
      "http://fonts.googleapis.com/css?family=Quattrocento:400,700&subset=latin,latin-ext")
@@ -227,7 +227,7 @@
     (copy-dir! (io/file (io/resource "assets"))
                root)
     ;;
-    (let [feed-dir (io/file root "feeds")]
+    (let [feed-dir (io/file root)]
       (.mkdirs feed-dir)
       (spit (io/file feed-dir "ftbb.rss")
             (rss-feed posts)))
