@@ -2,12 +2,12 @@
   (:gen-class)
   (:refer-clojure :exclude [replace])
   (:require
-    [clojure.edn :as edn :only [read-string]]
-    [clojure.string :as string :refer [replace]]
-    [clojure.java.io :as io]
-    [clojure.java.shell :as shell]
-    [clojure.data.xml :refer [indent-str sexp-as-element]]
-    [hiccup.page :refer [html5 include-css]])
+   [clojure.edn :as edn :only [read-string]]
+   [clojure.string :as string :refer [replace]]
+   [clojure.java.io :as io]
+   [clojure.java.shell :as shell]
+   [clojure.data.xml :refer [indent-str sexp-as-element]]
+   [hiccup.page :refer [html5 include-css]])
   (:import
    java.nio.file.Files
    java.nio.file.FileSystems))
@@ -84,7 +84,7 @@
     [:section#container
      body]
     [:footer
-     [:div.copyright "&copy; 2009-2014 Keith Irwin, Christoph Neumann. All rights reserved."]]
+     [:div.copyright "&copy; 2009-2015 Keith Irwin, Christoph Neumann. All rights reserved."]]
     [:script {:type "text/javascript"}
       "var _gauges = _gauges || [];
       (function() {
@@ -148,7 +148,7 @@
        [:itunes:owner
         [:itunes:name "contact@flippingthebozobit.tv"]
         [:itunes:email "contact@flippingthebozobit.tv"]]
-       [:copyright "2013-2014, Keith Irwin and Christoph Neumann"]
+       [:copyright "2013-2015, Keith Irwin and Christoph Neumann"]
        [:itunes:image "http://ftbb.tv/pix/podcastcover.png"]
        [:itunes:category {:text "Technology"}
         [:itunes:category {:text "Software How-To"}]]
@@ -170,7 +170,7 @@
           [:itunes:subtitle (:summary p)]
           [:itunes:summary (:summary p)]
           [:itunes:keywords (:tags p)]
-          [:itunes:image "http://ftbb.tv/pix/podcastcover.jpg"]
+          [:itunes:image "http://ftbb.tv/pix/podcastcover.png"]
           [:itunes:duration (:media-duration p)]])]]))
    "><" ">\n<"))
 
