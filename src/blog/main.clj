@@ -149,7 +149,7 @@
         [:itunes:name "contact@flippingthebozobit.tv"]
         [:itunes:email "contact@flippingthebozobit.tv"]]
        [:copyright "2013-2015, Keith Irwin and Christoph Neumann"]
-       [:itunes:image "http://ftbb.tv/pix/podcastcover.png"]
+       [:itunes:image {:href "http://ftbb.tv/pix/podcastcover.png"}]
        [:itunes:category {:text "Technology"}
         [:itunes:category {:text "Software How-To"}]]
        [:pubDate (ndate)]
@@ -170,7 +170,7 @@
           [:itunes:subtitle (:summary p)]
           [:itunes:summary (:summary p)]
           [:itunes:keywords (:tags p)]
-          [:itunes:image "http://ftbb.tv/pix/podcastcover.png"]
+          [:itunes:image {:href "http://ftbb.tv/pix/podcastcover.png"}]
           [:itunes:duration (:media-duration p)]])]]))
    "><" ">\n<"))
 
