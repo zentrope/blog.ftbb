@@ -27,8 +27,8 @@
    [clojure.data.xml :refer [indent-str sexp-as-element]]
    [hiccup.page :refer [html5 include-css]])
   (:import
-   java.nio.file.Files
-   java.nio.file.FileSystems))
+   (java.nio.file Files)
+   (java.nio.file FileSystems)))
 
 ;;-----------------------------------------------------------------------------
 
@@ -46,6 +46,8 @@
   [d]
   (->> (.parse mdate d)
        (.format rfc822)))
+
+(def tag (format "%x" (System/currentTimeMillis)))
 
 ;;-----------------------------------------------------------------------------
 
@@ -77,12 +79,23 @@
 
 (defn- markdown!
   [string]
-  (:out (shell/sh "/usr/local/bin/mmd" "--notes" "--smart" :in string)))
+  (:out (shell/sh "/usr/local/bin/mmd" :in string)))
 
 ;;-----------------------------------------------------------------------------
 
+(def link-header true)
+(def unlink-header false)
+
+(def title "Flipping the Bozo Bit")
+
+(defn- mk-title
+  [link?]
+  (if link?
+    [:a {:href "/"} title]
+    title))
+
 (defn- container
-  [& body]
+  [link? & body]
   (html5
    [:head
     [:title "Flipping the Bozo Bit"]
@@ -90,44 +103,51 @@
     [:meta {:http-quiv "X-UA-Compatible" :content "IE=edge"}]
     [:meta {:name "viewport" :content "width=device-width"}]
     [:link {:rel "alternate" :type "application/rss+xml" :title "RSS"
-            :href "http://ftbb.tv/ftbb.rss"}]
-    [:link {:rel "icon" :href "favicon.png"}]
-    (include-css
-     "http://fonts.googleapis.com/css?family=Quattrocento:400,700&subset=latin,latin-ext")
-    (include-css "/style.css")]
+            :href (str "http://ftbb.tv/ftbb.rss?" tag)}]
+    [:link {:rel "icon" :href (str "favicon.png" tag)}]
+    (include-css (str "/style.css?" tag))]
    [:body
     [:header
-     [:div.title [:a {:href "/"} "Flipping the Bozo Bit"]]
+     [:div.title (mk-title link?)]
      [:div.author "Keith Irwin & Christoph Neumann"]]
     [:section#container
      body]
     [:footer
      [:div.copyright
-      "&copy; 2009-2015 Keith Irwin, Christoph Neumann. All rights reserved."]]]))
+      "&copy; 2009-2018 Keith Irwin, Christoph Neumann. All rights reserved."]]]))
 
 (defn- post-page
   [title date text]
-  (container
+  (container link-header
    [:article
     [:h1 title]
     [:section.date date]
     [:section.body text]]))
 
+(def itunes-link
+  [:a {:href "https://itunes.apple.com/us/podcast/flipping-the-bozo-bit/id683786673"} "iTunes"])
+
+(def feed-link
+  [:a {:href "http://ftbb.tv/feeds/rss.xml"} "feed"])
+
 (defn- index-page
-  [posts pages]
-  (container
+  [posts]
+  (container unlink-header
    [:section.posts
     [:h1 "Contents"]
-    [:ul
+    [:div.contents
      (for [{:keys [slug title when]} posts]
-       [:li
-        [:span.date when]
-        " "
-        [:span.link [:a {:href (str "post/" slug "/")} title]]])]]
-   (for [p pages]
-     [:section.page
-      [:h1 (:title p)]
-      (:html p)])))
+       [:div.entry
+        [:div.date when]
+        [:div.text [:a {:href (str "post/" slug "/")} title]]])]
+    [:h1 "Find us"]
+    [:div.contents
+     [:div.entry
+      [:div.date "Store"]
+      [:div.text itunes-link]]
+     [:div.entry
+      [:div.date "Reader"]
+      [:div.text feed-link]]]]))
 
 (defn- rss-feed
   [posts]
@@ -201,11 +221,6 @@
   (->> (resource-file-seq "posts")
        (mapv load-text!)))
 
-(defn- scoop-pages
-  [index]
-  (let [pages (filter #(= (:type %) :page) index)]
-    (map #(select-keys % [:title :text]) pages)))
-
 (defn- scoop-posts
   [texts]
   (->> (filter #(= (:type %) :post) texts)
@@ -217,18 +232,21 @@
 (defn -main
   [& args]
   (println "Running.")
+  (when-not (.exists (io/file "/usr/local/bin/mmd"))
+    (println "- You must install multimarkdown via homebrew for this to work.")
+    (println "- Tell the developer to use an embedded MD engine. Sheesh.")
+    (System/exit 1))
 
   (let [texts (load-index!)
         root (io/as-file "pub")
-        posts (mapv #(assoc % :html (markdown! (:text %))) (scoop-posts texts))
-        pages (mapv #(assoc % :html (markdown! (:text %))) (scoop-pages texts))]
+        posts (mapv #(assoc % :html (markdown! (:text %))) (scoop-posts texts))]
     ;;
     (when (.exists root)
       (delete-file-recursively! root))
     ;;
     (.mkdirs root)
     ;;
-    (spit (io/file root  "index.html") (index-page posts pages))
+    (spit (io/file root  "index.html") (index-page posts))
     ;;
     (copy-dir! (io/file (io/resource "assets"))
                root)

@@ -18,9 +18,15 @@
 # This Makefile is a launcher more than a maker.
 #
 
-.PHONY: outdated help
+.PHONY: outdated help run serve
 
 .DEFAULT_GOAL := help
+
+run: ## Run (and build) the web-site
+	lein run
+
+serve: ## Run the builder, then serve the app on port 3000
+	lein run ; cd pub ; webdev . ; cd ..
 
 outdated: ## Print outdated dependencies
 	lein ancient :all :check-clojure :allow-qualified :plugins || true
