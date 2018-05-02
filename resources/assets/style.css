@@ -178,8 +178,8 @@ audio {
 
 @media (max-width: 650px) {
   html, body {
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
   }
 
   header {
@@ -188,6 +188,11 @@ audio {
 
   .posts {
     width: 100% !important;
+  }
+
+  .posts .contents .entry .date {
+    padding-left: 0px;
+    width: 100px;
   }
 
   footer {
