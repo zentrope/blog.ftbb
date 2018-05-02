@@ -31,6 +31,10 @@ serve: ## Run the builder, then serve the app on port 3000
 outdated: ## Print outdated dependencies
 	lein ancient :all :check-clojure :allow-qualified :plugins || true
 
+clean: ## Clean
+	rm -rf pub
+	lein clean
+
 help: ## Show makefile based help
 	@grep -E '^[a-zA-Z0-9_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
 		| awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-25s\033[0m %s\n", $$1, $$2}' \
