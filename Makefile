@@ -22,14 +22,23 @@
 
 .DEFAULT_GOAL := help
 
-run: ## Run (and build) the web-site
+generate: ## Generate the static web-site
 	lein run
 
-serve: ## Run the builder, then serve the app on port 3000
-	lein run ; cd pub ; webdev . ; cd ..
+serve: generate ## Run the builder, then serve the app on port 3000
+	cd pub ; webdev . ; cd ..
 
 outdated: ## Print outdated dependencies
 	lein ancient :all :check-clojure :allow-qualified :plugins || true
+
+styles: ## Link generated styles to source styles for dev
+	@echo "Linking generated style.css to source."
+	@if [ -e "pub" ]; then \
+		cd pub; \
+		rm style.css; \
+		ln -s ../resources/assets/style.css; \
+	fi
+	@ls -l pub/*.css
 
 clean: ## Clean
 	rm -rf pub
