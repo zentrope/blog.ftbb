@@ -33,14 +33,14 @@ software after every release?
  - Guitar!
  - Writing code as performance.
  - Improvisation, instruments, scores.
- - Rewrite as process is kinda like jazz improv over a chart of chord
-   changes, right?
+ - Rewrite as process is kinda like jazz improvisation over a chart of
+   chord changes, right?
  - Sax might work better than a symphony orchestra when you need to
-   improv.
+   improvise.
  - My secret weapon is Clojure.
  - Banjo!
- - "And then I come in with my ukelele and just get upset."
- - Ukelele!
+ - "And then I come in with my ukulele and just get upset."
+ - Ukulele!
  - Guard rail programming (driving by unit tests).
  - The interface docs are the app, not the code, not the
    implementation.
@@ -48,8 +48,8 @@ software after every release?
  - How to decouple? Look to the data.
  - State data vs event data (moments lost like tears in the rain vs
    the eternal).
- - Injecting your dependencies. Is that a euphamism?
- - Turing complete config langage. No!
+ - Injecting your dependencies. Is that a euphemism?
+ - Turing complete config language. No!
  - "All you get is English."
  - If all you have to spec components is English, components have got
    to be simple.
@@ -67,7 +67,7 @@ software after every release?
  - The first thing to jettison with multiple rewrites are the
    pointless abstractions.
  - Improvisation + experience.
- - Onboarding new devs via rewriting.
+ - On-boarding new devs via rewriting.
  - "The knife dropped itself from my hands."
  - "The code went off the deep end."
  - "_We_ chained ourselves to the technical debt."

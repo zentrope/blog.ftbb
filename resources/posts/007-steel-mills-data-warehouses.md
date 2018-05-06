@@ -33,8 +33,8 @@ podcast is, ultimately, about design.
  - "This Facebook thing is confusing me a bit."
  - How many gamma bursts per angstrom?
  - Human vs machine interface and the idea of a command protocol
-   expressing user intentionality. Beep boop.
- - Human typeable protocol, the ultimate human/machine
+   expressing user intention. Beep boop.
+ - Human type-able protocol, the ultimate human/machine
    interface. (Well, outside of brain implants. Maybe.)
  - The Hardware shouldn't know about the System, the System shouldn't
    know about the Hardware. (Or Facebook.)
