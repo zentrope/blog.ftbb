@@ -1,0 +1,9 @@
+{:deps  {org.clojure/clojure  {:mvn/version "1.10.0-alpha4"}
+         org.clojure/data.xml {:mvn/version "0.2.0-alpha5"}
+         hiccup               {:mvn/version "2.0.0-alpha1"}}
+ :paths ["src" "resources"]
+ :aliases
+ {:run      {:main-opts [-m blog.main]}
+  :outdated {:main-opts  ["-m" "depot.outdated.main" "-a" "outdated" "-t" "qualified,release"]
+             :extra-deps {olical/depot {:mvn/version "1.0.1"}}
+             :jvm-opts   ["-Dlogback.ConfigurationFile=res/logback.xml"]}}}

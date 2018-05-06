@@ -24,13 +24,13 @@
 .DEFAULT_GOAL := help
 
 generate: ## Generate the static web-site
-	lein run
+	clojure -A:run
 
 serve: generate ## Run the builder, then serve the app on port 3000
 	cd pub ; webdev . ; cd ..
 
 outdated: ## Print outdated dependencies
-	lein ancient :all :check-clojure :allow-qualified :plugins || true
+	clojure -A:outdated
 
 styles: ## Link generated styles to source styles for dev
 	@echo "Linking generated style.css to source."
@@ -43,7 +43,6 @@ styles: ## Link generated styles to source styles for dev
 
 clean: ## Clean
 	rm -rf pub
-	lein clean
 
 help: ## Show makefile based help
 	@grep -E '^[a-zA-Z0-9_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
