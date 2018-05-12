@@ -23,11 +23,13 @@
 
 .DEFAULT_GOAL := help
 
+webdev = webdev --folder pub --port 3000
+
 generate: ## Generate the static web-site
 	clojure -A:run
 
 serve: generate ## Run the builder, then serve the app on port 3000
-	cd pub ; webdev . ; cd ..
+	$(webdev)
 
 outdated: ## Print outdated dependencies
 	clojure -A:outdated
