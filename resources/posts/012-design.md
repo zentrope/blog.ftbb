@@ -13,7 +13,7 @@ What if we made design a part of the Agile Software Process?
 
 **In This Episode:**
 
- - [Emu Ranchers](http://emuranchers.com)
+ - [Emu Ranchers][emu]
  - [Agile Software Development][asd]
  - [Waterfall Model][wf]
  - [Design is how it works][hiw]
@@ -27,6 +27,7 @@ What if we made design a part of the Agile Software Process?
   </div>
 </div>
 
+[emu]: https://web.archive.org/web/20131110111302/http://appsaucelabs.com:80/emuranchers/
 [wf]: http://en.wikipedia.org/wiki/Waterfall_model
 [asd]: http://en.wikipedia.org/wiki/Agile_software_development
 [hiw]: http://www.quotationspage.com/quote/38348.html
