@@ -71,7 +71,7 @@ And finally:
   </div>
 </div>
 
-[nscd]: http://raganwald.com/2008/05/narcissism-of-small-code-differences.html
+[nscd]: http://weblog.raganwald.com/2008/05/narcissism-of-small-code-differences.html
 [clj]: http://clojure.org
 [scala]: http://www.scala-lang.org
 [narc]: http://vimeo.com/77199361
